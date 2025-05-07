@@ -2,9 +2,8 @@ import gspread
 from google.oauth2.service_account import Credentials
 
 # Autenticação com Google Sheets
-return gspread.authorize(credentials)
 
-gc = autenticar_gsheets()
+sheet = autenticar_google_sheets()
 sheet = gc.open("LendismartDB")
 
 def gravar_cliente_em_sheet(dados):
