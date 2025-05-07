@@ -1,11 +1,8 @@
-
 import gspread
 from google.oauth2.service_account import Credentials
 
 # Autenticação com Google Sheets
-    scopes = ["https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive"]
-        return gspread.authorize(credentials)
+return gspread.authorize(credentials)
 
 gc = autenticar_gsheets()
 sheet = gc.open("LendismartDB")
@@ -643,7 +640,3 @@ elif separador == "📌 Follow-ups":
         }
         resultado = gravar_em_sheet(sheet, "FollowUps", dados_followup, chave="id")
         st.info(f"Follow-up gravado no Google Sheets ({resultado})")
-
-
-
-
