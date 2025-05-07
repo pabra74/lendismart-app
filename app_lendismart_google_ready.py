@@ -1,4 +1,4 @@
-from gsheets_utils import autenticar_google_sheets, gravar_em_sheet, carregar_todos_de_sheet, obter_colunas
+from gsheets_utils import autenticar_google_sheets, gravar_em_sheet, carregar_todos_de_sheet, obter_colunas, carregar_aba_de_sheet
 sheet = autenticar_google_sheets()
 import gspread
 from google.oauth2.service_account import Credentials
@@ -98,7 +98,7 @@ if separador == "📄 Proposta":
                     del st.session_state[key]
             st.experimental_rerun()
     with col_botoes_2:
-        propostas_sheet = carregar_todos_de_sheet(sheet, "Propostas")
+        propostas_sheet = carregar_aba_de_sheet(sheet, \"Propostas\")
     propostas_opcoes = ["Selecionar Proposta Existente"] + [p["id"] for p in propostas_sheet if p.get("id")]
     with col_botoes_2:
         proposta_selecionada = st.selectbox("Carregar Proposta", propostas_opcoes, key="proposta_a_atualizar_select")
@@ -227,7 +227,7 @@ elif separador == "👥 Clientes":
                     del st.session_state[key]
             st.experimental_rerun()
     with col_botoes_2:
-        clientes_sheet = carregar_todos_de_sheet(sheet, "Clientes")
+        clientes_sheet = carregar_aba_de_sheet(sheet, \"Clientes\")
     cliente_opcoes = ["Selecionar Cliente Existente"] + [c["id"] + " - " + c["nome"] for c in clientes_sheet if c.get("id")]
     with col_botoes_2:
         cliente_selecionado_atualizar = st.selectbox("Carregar Cliente", cliente_opcoes, key="cliente_a_atualizar_select")
@@ -477,7 +477,7 @@ elif separador == "🏪 Stands":
                     del st.session_state[key]
             st.experimental_rerun()
     with col_botoes_2:
-        stands_sheet = carregar_todos_de_sheet(sheet, "Stands")
+        stands_sheet = carregar_aba_de_sheet(sheet, \"Stands\")
     stand_opcoes = ["Selecionar Stand Existente"] + [s["id"] + " - " + s["nome_comercial"] for s in stands_sheet if s.get("id")]
     with col_botoes_2:
         stand_selecionado = st.selectbox("Carregar Stand", stand_opcoes, key="stand_a_atualizar_select")
@@ -552,7 +552,7 @@ elif separador == "🚗 Viaturas":
                     del st.session_state[key]
             st.experimental_rerun()
     with col_botoes_2:
-        viaturas_sheet = carregar_todos_de_sheet(sheet, "Viaturas")
+        viaturas_sheet = carregar_aba_de_sheet(sheet, \"Viaturas\")
     viatura_opcoes = ["Selecionar Viatura Existente"] + [v["id"] for v in viaturas_sheet if v.get("id")]
     with col_botoes_2:
         viatura_selecionada = st.selectbox("Carregar Viatura", viatura_opcoes, key="viatura_a_atualizar_select")
@@ -609,7 +609,7 @@ elif separador == "📌 Follow-ups":
                     del st.session_state[key]
             st.experimental_rerun()
     with col_botoes_2:
-        followups_sheet = carregar_todos_de_sheet(sheet, "FollowUps")
+        followups_sheet = carregar_aba_de_sheet(sheet, \"FollowUps\")
     followup_opcoes = ["Selecionar Follow-up Existente"] + [f["id"] for f in followups_sheet if f.get("id")]
     with col_botoes_2:
         followup_selecionado = st.selectbox("Carregar Follow-up", followup_opcoes, key="followup_a_atualizar_select")
