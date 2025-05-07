@@ -1,9 +1,10 @@
+from gsheets_utils import autenticar_google_sheets, gravar_em_sheet, carregar_todos_de_sheet, obter_colunas
+sheet = autenticar_google_sheets()
 import gspread
 from google.oauth2.service_account import Credentials
 
 # Autenticação com Google Sheets
 
-sheet = autenticar_google_sheets()
 sheet = gc.open("LendismartDB")
 
 def gravar_cliente_em_sheet(dados):
@@ -21,7 +22,6 @@ def carregar_clientes_de_sheet():
     return registos
 
 import streamlit as st
-from gsheets_utils import autenticar_google_sheets, gravar_em_sheet, carregar_todos_de_sheet, obter_colunas
 from datetime import date
 import re # For input validation
 from fpdf import FPDF # For PDF generation
