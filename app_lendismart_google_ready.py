@@ -5,7 +5,6 @@ from google.oauth2.service_account import Credentials
 
 # Autenticação com Google Sheets
 
-sheet = gc.open("LendismartDB")
 
 def gravar_cliente_em_sheet(dados):
     aba = sheet.worksheet("Clientes")
