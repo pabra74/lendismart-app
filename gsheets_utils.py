@@ -32,6 +32,15 @@ def carregar_todos_de_sheet(sheet):
             st.warning(f"Não foi possível carregar a aba {aba.title}: {e}")
     return tabelas
 
+def carregar_aba_de_sheet(sheet, nome_aba):
+    try:
+        aba = sheet.worksheet(nome_aba)
+        df = pd.DataFrame(aba.get_all_records())
+        return df
+    except Exception as e:
+        st.error(f"Erro ao carregar aba '{nome_aba}': {e}")
+        return pd.DataFrame()
+
 def obter_colunas(sheet, nome_aba):
     try:
         aba = sheet.worksheet(nome_aba)
