@@ -1,20 +1,14 @@
 
 import gspread
+import streamlit as st
 from google.oauth2.service_account import Credentials
 
-SCOPES = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive"
-]
-
-CREDS_PATH = "service_account.json"
-SPREADSHEET_NAME = "LendismartDB"
+SCOPES = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
 
 def autenticar_google_sheets():
-    credentials = import streamlit as st
-Credentials.from_service_account_info(st.secrets["gcp_service_account"], scopes=SCOPES)
+    credentials = Credentials.from_service_account_info(st.secrets["gcp_service_account"], scopes=SCOPES)
     cliente = gspread.authorize(credentials)
-    sheet = cliente.open(SPREADSHEET_NAME)
+    sheet = cliente.open("LendismartDB")
     return sheet
 
 def gravar_em_sheet(sheet, aba_nome, dados_dict, chave="id"):
@@ -22,7 +16,6 @@ def gravar_em_sheet(sheet, aba_nome, dados_dict, chave="id"):
     headers = ws.row_values(1)
     valores = [str(dados_dict.get(h, "")) for h in headers]
 
-    # Verificar se já existe pelo valor da chave
     todas_linhas = ws.get_all_records()
     for i, linha in enumerate(todas_linhas, start=2):
         if str(linha.get(chave, "")).strip() == str(dados_dict.get(chave, "")).strip():
