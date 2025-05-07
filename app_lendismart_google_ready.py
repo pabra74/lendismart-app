@@ -3,13 +3,11 @@ import gspread
 from google.oauth2.service_account import Credentials
 
 # Autenticação com Google Sheets
-def autenticar_gsheets():
     scopes = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive"
 ]
-    credentials = Credentials.from_service_account_file("service_account.json", scopes=scopes)
-    return gspread.authorize(credentials)
+        return gspread.authorize(credentials)
 
 gc = autenticar_gsheets()
 sheet = gc.open("LendismartDB")
