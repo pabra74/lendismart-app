@@ -3,10 +3,8 @@ import gspread
 from google.oauth2.service_account import Credentials
 
 # Autenticação com Google Sheets
-    scopes = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive"
-]
+    scopes = ["https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive"]
         return gspread.authorize(credentials)
 
 gc = autenticar_gsheets()
