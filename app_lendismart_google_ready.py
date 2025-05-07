@@ -1,4 +1,4 @@
-from gsheets_utils import autenticar_google_sheets, gravar_em_sheet, carregar_todos_de_sheet, obter_colunas, carregar_aba_de_sheet
+from gsheets_utils import autenticar_google_sheets, gravar_em_sheet, obter_colunas, carregar_aba_de_sheet
 sheet = autenticar_google_sheets()
 import gspread
 from google.oauth2.service_account import Credentials
