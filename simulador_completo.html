@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador - Dados Financeiros</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f9fc;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      color: #1e3a8a;
+    }
+    section {
+      background: #ffffff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: 600;
+      display: block;
+      margin-top: 15px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    .row {
+      display: flex;
+      gap: 20px;
+    }
+    .col {
+      flex: 1;
+    }
+    .button-bar {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .proposta-btn { background-color: #1e88e5; color: white; }
+    .gravar-btn { background-color: #43a047; color: white; }
+    .enviar-btn { background-color: #f9a825; color: white; }
+  </style>
+</head>
+<body>
+
+<h1>📊 Simulador - Dados Financeiros</h1>
+
+<section>
+  <h2>Tipo de Crédito</h2>
+  <label for="tipo_credito">Tipo de Crédito</label>
+  <select id="tipo_credito">
+    <option>Crédito</option>
+    <option>Leasing</option>
+    <option>ALD</option>
+  </select>
+</section>
+
+<section>
+  <h2>Dados do Ponto de Venda</h2>
+  <label for="stand">Nome do Stand</label>
+  <select id="stand">
+    <option>Selecionar...</option>
+  </select>
+</section>
+
+<section>
+  <h2>Dados do Cliente</h2>
+  <div class="row">
+    <div class="col">
+      <label for="tipo_cliente">Tipo de Cliente</label>
+      <select id="tipo_cliente">
+        <option>Particular</option>
+        <option>Empresa</option>
+        <option>ENI</option>
+      </select>
+    </div>
+    <div class="col">
+      <label for="data_nascimento">Data de Nascimento</label>
+      <input type="date" id="data_nascimento">
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Dados do Financiamento</h2>
+  <div class="row">
+    <div class="col">
+      <label for="ano_matricula">Ano da 1ª Matrícula</label>
+      <input type="month" id="ano_matricula">
+    </div>
+    <div class="col">
+      <label for="registo">1º Registo Propriedade?</label>
+      <select id="registo">
+        <option>Sim</option>
+        <option>Não</option>
+      </select>
+    </div>
+  </div>
+  <label for="categoria">Categoria do Veículo</label>
+  <select id="categoria">
+    <option>Ligeiros de passageiros</option>
+    <option>Trator agrícola</option>
+    <option>Máquina industrial</option>
+    <option>Moto</option>
+    <option>Outro</option>
+  </select>
+  <div class="row">
+    <div class="col">
+      <label for="pvp">Valor PVP (€)</label>
+      <input type="number" id="pvp" step="0.01">
+    </div>
+    <div class="col">
+      <label for="entrada">Entrada (€)</label>
+      <input type="number" id="entrada" step="0.01">
+    </div>
+    <div class="col">
+      <label for="percentual">% Entrada (automático)</label>
+      <input type="text" id="percentual" disabled>
+    </div>
+  </div>
+  <label for="prazo">Prazo (meses)</label>
+  <input type="number" id="prazo">
+  <label for="taxa">Regime de Taxa</label>
+  <select id="taxa">
+    <option>Fixa</option>
+    <option>Variável</option>
+  </select>
+  <label for="subvencao">Comissão Bancária (Subvenção)</label>
+  <select id="subvencao">
+    <option>Sim</option>
+    <option>Não</option>
+  </select>
+</section>
+
+<section>
+  <h2>Seguros</h2>
+  <label for="seguro">Proteção ao Crédito</label>
+  <select id="seguro">
+    <option>Sem seguro</option>
+    <option>Vida</option>
+    <option>Vida+</option>
+    <option>65+</option>
+  </select>
+</section>
+
+<section>
+  <h2>Cálculos Auxiliares</h2>
+  <div class="row">
+    <div class="col">
+      <label for="tan">TAN - Taxa Base (%)</label>
+      <input type="number" step="0.01" id="tan">
+    </div>
+    <div class="col">
+      <label for="spread">Spread PV (%)</label>
+      <input type="number" step="0.01" id="spread">
+    </div>
+    <div class="col">
+      <label for="nominal">Taxa Nominal (%)</label>
+      <input type="number" step="0.01" id="nominal" disabled>
+    </div>
+  </div>
+  <label for="comissao_pv">Comissão PV (%)</label>
+  <input type="number" step="0.01" id="comissao_pv">
+  <label for="prestacao">Prestação Desejada (€)</label>
+  <input type="number" step="0.01" id="prestacao">
+  <label for="taeg">TAEG (%)</label>
+  <input type="number" step="0.01" id="taeg">
+</section>
+
+<section>
+  <h2>📤 Ações</h2>
+  <label for="t_valor">T (campo adicional para PDF stand)</label>
+  <input type="number" step="0.01" id="t_valor">
+
+  <div class="button-bar">
+    <button class="proposta-btn">➡️ Passar à Proposta</button>
+    <button class="gravar-btn">💾 Gravar Dados</button>
+    <button class="enviar-btn">📩 Enviar ao Cliente (PDF)</button>
+    <button class="enviar-btn">📤 Enviar ao Stand (PDF + T)</button>
+  </div>
+</section>
+
+</body>
+</html>

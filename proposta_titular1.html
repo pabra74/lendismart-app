@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Proposta - 1º Titular</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f9;
+      padding: 20px;
+      color: #333;
+    }
+    section {
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #1e3a8a;
+      margin-top: 0;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 15px;
+      display: block;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .col {
+      flex: 1;
+      min-width: 250px;
+    }
+  </style>
+</head>
+<body>
+<h1>📄 Proposta - 1º Titular</h1>
+<section>
+  <h2>Documento de Identificação</h2>
+  <div class="row">
+    <div class="col"><label for="nif">NIF</label><input type="text" id="nif" placeholder="123456789"></div>
+    <div class="col"><label for="tipo_doc">Tipo de Documento</label>
+      <select id="tipo_doc">
+        <option>Cartão Cidadão</option>
+        <option>Título Residência</option>
+        <option>Autorização residência CPLP</option>
+      </select>
+    </div>
+    <div class="col"><label for="validade_doc">Validade</label><input type="date" id="validade_doc"></div>
+  </div>
+  <div class="row">
+    <div class="col"><label for="entidade">Entidade Emitente</label><input type="text" id="entidade"></div>
+    <div class="col"><label for="pais_emissao">País de Emissão</label><input type="text" id="pais_emissao"></div>
+    <div class="col"><label for="niss">NISS</label><input type="text" id="niss" placeholder="12345678901"></div>
+  </div>
+</section>
+<section>
+  <h2>Dados Pessoais</h2>
+  <div class="row">
+    <div class="col"><label for="nome">Nome (maiúsculas)</label><input type="text" id="nome" style="text-transform: uppercase;"></div>
+    <div class="col"><label for="genero">Género</label>
+      <select id="genero"><option>Masculino</option><option>Feminino</option><option>Indiferenciado</option></select>
+    </div>
+    <div class="col"><label for="nascimento">Data de Nascimento</label><input type="date" id="nascimento"></div>
+  </div>
+  <div class="row">
+    <div class="col"><label for="nacionalidade">Nacionalidade</label><input type="text" id="nacionalidade"></div>
+    <div class="col"><label for="outra_nacionalidade">Outras Nacionalidades</label>
+      <select id="outra_nacionalidade"><option>Não</option><option>Sim</option></select>
+    </div>
+    <div class="col"><label for="naturalidade">Naturalidade</label><input type="text" id="naturalidade"></div>
+  </div>
+  <div class="row">
+    <div class="col"><label for="estado_civil">Estado Civil</label>
+      <select id="estado_civil">
+        <option>Casado</option><option>Solteiro</option><option>Separado</option><option>Divorciado</option><option>Viúvo</option>
+      </select>
+    </div>
+    <div class="col"><label for="dependentes">Nº Dependentes</label><input type="number" id="dependentes"></div>
+    <div class="col"><label for="habilitacoes">Habilitações</label>
+      <select id="habilitacoes"><option>Primário</option><option>Secundária</option><option>Universitária</option></select>
+    </div>
+  </div>
+</section>
+<section>
+  <h2>Contactos</h2>
+  <div class="row">
+    <div class="col"><label for="cp">Código Postal</label><input type="text" id="cp" placeholder="0000-000"></div>
+    <div class="col"><label for="morada">Morada</label><input type="text" id="morada"></div>
+    <div class="col"><label for="porta">Porta</label><input type="text" id="porta"></div>
+  </div>
+  <div class="row">
+    <div class="col"><label for="andar">Andar</label><input type="text" id="andar"></div>
+    <div class="col"><label for="localidade">Localidade</label><input type="text" id="localidade"></div>
+    <div class="col"><label for="tipo_habitacao">Tipo de Habitação</label>
+      <select id="tipo_habitacao">
+        <option>Alugada</option><option>Habitação profissional</option><option>Pais/Família</option>
+        <option>Própria com hipoteca</option><option>Própria sem hipoteca</option><option>Sem domicílio</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"><label for="telefone">Telefone</label><input type="text" id="telefone" placeholder="912345678"></div>
+    <div class="col"><label for="email">E-mail</label><input type="email" id="email"></div>
+  </div>
+</section>
+</body>
+</html>

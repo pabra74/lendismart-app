@@ -1,0 +1,11 @@
+Lendismart_v3/
+├── main.py
+├── requirements.txt
+├── modules/
+│   ├── simulador.py
+│   ├── proposta_titular1.py
+│   ├── proposta_titular2.py
+│   ├── proposta_avalista.py
+│   ├── empresa_dados.py
+│   ├── viatura_dados.py
+│   └── proposta.py

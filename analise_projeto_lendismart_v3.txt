@@ -1,0 +1,178 @@
+# 📊 Análise Técnica do Projeto: App Lendismart V3
+
+---
+
+## ✅ OBJETIVO GERAL
+
+Desenvolver uma aplicação profissional em **Streamlit**, com interface acessível via **telemóvel e PC**, para **gestão completa do processo de intermediação de crédito automóvel**, com foco em:
+
+- Redução de erros
+- Ganhos de tempo
+- Estruturação e histórico de propostas
+- Geração de documentação (PDF, API)
+- Preparação para automação via CRM e integrações com financeiras
+
+---
+
+## 🧱 ESTRUTURA DA APLICAÇÃO
+
+### 🗂 Menu Lateral (versão aprovada)
+Renomeado para "📁 Menu proposta":
+
+1. **📊 Simulador**
+2. **📄 Cliente - 1º Titular**
+3. **📄 Cliente - 2º Titular**
+4. **📄 Cliente - Avalista**
+5. **📄 Cliente - Empresa**
+6. **🚗 Viatura**
+7. **📄 Proposta resumo**
+
+---
+
+## 🔍 ANÁLISE DE CADA SEPARADOR
+
+### 1. 📊 Simulador
+- Primeira etapa do processo.
+- Geração de dados da simulação financeira.
+- Cálculos automáticos: Valor a financiar, comissão, rentabilidade.
+- Campos agrupados visualmente (3/linha).
+- Destaque para "Valor a Financiar" com fonte grande e cor vermelha.
+- Seção "📉 Comissões" com:
+  - Comissão PV
+  - T para stand
+  - Margem broker (% e €)
+  - Comissão comercial (% e €)
+  - Valor seguros (se aplicável)
+- TODOS os campos calculam em tempo real.
+
+### 2. 📄 Cliente - 1º Titular
+- Formulário completo com:
+  - Documento de identificação
+  - Dados pessoais
+  - Contactos
+  - Dados profissionais
+  - Rendimentos com cálculo automático de vencimento líquido A e B
+  - Checklist de documentos com estado (OK / Falta) + observações
+  - Botão de gerar PDF com documentos em falta
+- Geração automática do identificador interno da proposta.
+
+### 3. 📄 Cliente - 2º Titular
+- Estrutura **idêntica** ao 1º titular.
+- Totalmente independente (cada titular com os seus dados).
+- Corrigido bug anterior onde alterava os dados nos outros separadores.
+
+### 4. 📄 Cliente - Avalista
+- Estrutura idêntica ao 1º titular.
+- Dados independentes, incluindo:
+  - Documentos, vencimentos, PEP, etc.
+- Também usado para representar sócios de empresa quando necessário.
+
+### 5. 📄 Cliente - Empresa
+- Inclui:
+  - Dados da empresa (NIPC, nome, contacto, e-mail)
+  - Fornecedor (stand)
+  - Códigos Certidão Comercial e RCBE
+  - IBAN formatado
+  - Morada completa com código postal
+- Checklist de documentos exigidos para NIF 5xx
+  - Certidão permanente
+  - IRC, IES, RCBE, etc.
+  - CC e morada dos sócios
+- Botão de exportar PDF dos documentos em falta.
+- Botões de **Gravar / Editar** incluídos.
+
+### 6. 🚗 Viatura
+- Campos específicos:
+  - Data da 1ª matrícula (min: 1980)
+  - Categoria (drop)
+  - Matrícula com formatação válida (AA-00-AA, etc.)
+  - Nº chassis (17 caracteres)
+  - Marca, modelo, versão
+  - Nº portas, potência, cilindrada, peso bruto
+  - Campo "Veículo Importado"
+- Campos replicam informação do simulador para consistência.
+- Inclui botão de **Gravar / Editar**.
+
+### 7. 📄 Proposta resumo
+- Consolida todos os dados:
+  - Titulares (drop-down), Avalista, Empresa
+  - Dados da simulação e viatura (preenchidos automaticamente)
+  - IBAN validado
+  - Stand e Simulação selecionada
+  - Seção Financeiras:
+    - Nº proposta
+    - Data
+    - Decisão (drop)
+    - Observações
+    - Botão individual de exportação por financeira
+- Botão final: "📥 Exportar Proposta"
+- Botões estão **fora do formulário** para evitar erros.
+- Em breve: funcionalidade real de geração de PDFs e preenchimento automático para backoffice ou APIs.
+
+---
+
+## 📂 ORGANIZAÇÃO DE CÓDIGO
+
+- `main.py`: gestor do menu e navegação
+- `/modules`: cada separador com seu ficheiro
+- `validador.py`: script de validações (ex: NIF, IBAN, e-mail, datas, etc.)
+- `utils`: utilitários de gravação em Google Sheets e exportação PDF
+
+---
+
+## 🧠 FUNCIONALIDADES TÉCNICAS IMPLEMENTADAS
+
+- Gravação em Google Sheets
+- Cálculos em tempo real com base em inputs
+- Geração de identificadores automáticos
+- Validações ao digitar (NIF, NISS, IBAN, e-mail, datas)
+- Separadores e inputs completamente independentes
+- PDF de documentos em falta
+- Checklist dinâmico por tipo de cliente
+- Interface responsiva (PC e smartphone)
+- Agrupamento visual inteligente (3-4 campos por linha)
+- Navegação consistente e menu fixo
+
+---
+
+## 🧭 ONDE ESTAMOS
+
+✔️ Estrutura de front-end aprovada  
+✔️ Todos os formulários prontos e funcionais  
+✔️ Lógica de cálculo e validações implementadas  
+✔️ Layout consistente e aprovado  
+✔️ Menu finalizado  
+✔️ Base de dados conectada ao Google Sheets  
+✔️ Interface pronta para uso interno
+
+---
+
+## 🚧 O QUE FALTA IMPLEMENTAR
+
+### 🔹 Fase 1 (curto prazo)
+- Implementar botão **"Exportar Proposta"** (PDF completo)
+- Ativar exportações por financeira
+- Criar histórico de propostas gravadas com função de "Editar"
+
+### 🔹 Fase 2 (médio prazo)
+- Integração com APIs de financeiras (auto-preenchimento)
+- Integração com CRM Pipedrive
+- Módulo de mensagens WhatsApp / e-mail (envio direto)
+- Exportação em Excel
+
+---
+
+## 🎯 VISÃO FINAL DO PROJETO
+
+Uma aplicação robusta e intuitiva que permita:
+
+- Registar todas as propostas com detalhe
+- Reduzir o erro humano
+- Consultar e editar propostas anteriores
+- Exportar facilmente para PDF, Excel ou sistemas externos
+- Aumentar a velocidade e rigor no envio das propostas às financeiras
+- Preparar o sistema para **automação total com integração por API**
+
+---
+
+**Qualquer passo futuro será feito SEM alterar estrutura já aprovada.**

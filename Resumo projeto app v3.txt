@@ -1,0 +1,107 @@
+✅ RESUMO DO QUE FOI FEITO ATÉ AGORA
+🔧 ESTRUTURA DA APP CRIADA EM STREAMLIT
+1. Separador 📊 Simulador
+Formulário inicial com dados do financiamento
+
+Cálculo automático de valores a financiar e percentagens
+
+Identificador único gerado por stand e data
+
+Preparado para envio ao cliente e ao stand
+
+2. Separadores 📄 Proposta – 1º Titular, 2º Titular e Avalista
+Formulários completos e detalhados com:
+
+Documento de Identificação
+
+Dados Pessoais
+
+Contactos
+
+Dados Profissionais
+
+Rendimentos (cálculo automático de Venc. Líquido A e B)
+
+Separador do 1º Titular inclui identificador interno da proposta
+
+Botões funcionais de Gravar e Editar
+
+3. Separador 🚗 Bem
+Campos completos sobre o veículo:
+
+Caracterização (matrícula, categoria, ano)
+
+Dados técnicos (chassis, marca, versão, potência, importado, etc.)
+
+4. Separador 📄 Proposta (centralizador)
+Identificador interno
+
+Intervenientes (nomes ligados a cada separador)
+
+IBAN do cliente
+
+Bloco para todas as financeiras (Credibom, Cetelem, etc.):
+
+Nº proposta
+
+Data de submissão
+
+Estado (dropdown com decisões)
+
+5. Menu principal main.py
+Todos os separadores integrados
+
+Importações corrigidas e funcionais
+
+🔜 PRÓXIMAS MELHORIAS E IMPLEMENTAÇÕES
+🗂 1. Gravação no Google Sheets
+Guardar dados por separador (Clientes, Propostas, Viaturas, Financeiras)
+
+Ligação segura com conta de serviço
+
+📤 2. Geração de PDF com Documentos em Falta
+Gerar PDF automaticamente com base no checklist de cada titular
+
+Exportável para envio por e-mail ou WhatsApp
+
+✅ 3. Validações obrigatórias e visuais
+Campos com máscara e validação imediata (ex: NIF, IBAN, e-mail)
+
+Não permitir envio se houver campos obrigatórios em falta
+
+🔒 4. Autenticação de Utilizadores
+Login com perfil (admin ou utilizador comercial)
+
+Guardar histórico de submissões por utilizador
+
+📬 5. Integração com Gmail / WhatsApp
+Gestão de resposta automática a leads
+
+Classificação automática por status (submetida, aprovada, recusada)
+
+🧩 COMO FICARÁ A APP NO FINAL
+🌐 Interface Multiseparador
+Navegação limpa e organizada
+
+Funciona em desktop e mobile
+
+Dados sincronizados e persistentes
+
+📈 Gestão Completa da Proposta
+De contacto inicial até financiamento aprovado
+
+Todos os intervenientes, bem e financeiras num único fluxo
+
+Controlo de prazos, decisões, envios, pendentes e follow-up
+
+🧾 Relatórios e Exportações
+Exportar por Excel, PDF e estatísticas por:
+
+Stand
+
+Banco
+
+Tipo de cliente
+
+Período
+
