@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.log
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Ambiente virtual
+venv/
+env/
+
+# IDEs
+.vscode/
+.idea/
+
+# Outros
+*.sqlite3
+*.pdf
+.DS_Store
+*.bak
